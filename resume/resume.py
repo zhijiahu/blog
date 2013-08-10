@@ -27,6 +27,6 @@ class ResumeManager():
 	def getExperienceList(self):
 		experienceList = []
 
-		experienceList = ResumeEvent.all().filter("eventType = ", "Experience")
+		experienceList = ResumeEvent.all().order("-startDate").filter("eventType = ", "Experience")
 
 		return experienceList
