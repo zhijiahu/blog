@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/resume.css" />
+
+  <title>Hu Zhijia</title>
+</head>
+
+<body>
+	<header id="nav-wrapper">
+
+	</header>
+	<div>
+		<div class="vcard">
+			Hu Zhijia
+		</div>
+		<article>
+			<section class="objective-wrapper">
+				<div class="header">
+					<h2>Objective</h2>
+				</div>
+				<div class="summary content">
+					<p>{{ objective }}</p>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="experience-wrapper">
+				<div class="header">
+					<h2>Experience</h2>		
+				</div>
+				<div class="content">
+					<ol class="vcalender">
+
+						{% for experience in experienceList %}
+						<li class="vevent vcard experience">
+							<h3 class="title">{{ experience.jobTitle }}</h3>
+							<span class="org highlight">{{ experience.company }}</span>
+							<div>
+								<abbr title="{{ experience.startDate }}">{{ experience.startDateText }}</abbr>
+								 - 
+								<abbr title="{{ experience.endDate }}">{{ experience.endDateText }}</abbr>
+							</div>
+							<span class="location">{{ experience.location }}</span>
+							<div class="summary">
+								<ul>
+									{% for summary in experience.summaryList %}
+									<li>{{ summary }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</li>
+						{% endfor %}
+
+					</ol>
+				</div>
+			</section>
+
+			<section class="skills-wrapper">
+			</section>
+
+			<section class="projects-wrapper">
+			</section>
+
+			<section class="education-wrapper">
+			</section>
+
+			<section class="interests-wrapper">
+			</section>
+		</article>
+	</div>
+	<footer></footer>
+</body>
+
+</html>
+
+
