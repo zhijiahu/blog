@@ -36,9 +36,17 @@
 							<h3 class="title">{{ experience.jobTitle }}</h3>
 							<span class="org highlight">{{ experience.company }}</span>
 							<div>
-								<abbr title="{{ experience.startDate }}">{{ experience.startDateText }}</abbr>
+								<abbr title="{{ experience.startDate }}">
+									{{ experience.startDate.strftime("%B %Y") }}
+								</abbr>
 								 - 
-								<abbr title="{{ experience.endDate }}">{{ experience.endDateText }}</abbr>
+								<abbr title="{{ experience.endDate }}">
+									{% if experience.endDate %}
+									{{ experience.endDate.strftime("%B %Y") }}
+									{% else %}		
+									Present
+									{% endif %}
+								</abbr>
 							</div>
 							<span class="location">{{ experience.location }}</span>
 							<div class="summary">
