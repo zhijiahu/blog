@@ -3,19 +3,41 @@
 <head>
   <link type="text/css" rel="stylesheet" href="/stylesheets/resume.css" />
 
-  <title>Hu Zhijia</title>
+  <title>Hu Zhijia - Résumé</title>
 </head>
 
 <body>
 	<header id="nav-wrapper">
-
+		<nav id="nav-wrapper-inner">
+			<ul id="options" class="clearfix">
+				<li id="linkedin">
+					<a href="http://www.linkedin.com/pub/zhijia-hu/20/b4b/287" rel="external">Linkedin</a>
+				</li>
+			</ul>
+		</nav>
 	</header>
-	<div>
-		<div class="vcard">
-			Hu Zhijia
-		</div>
-		<article>
-			<section class="objective-wrapper">
+	<article id="main">
+		<div id="wrapper">
+			<div class="vcard">
+				<div class="title-wrapper">
+					<h1>Hu Zhijia</h1>
+					<div class="clear"></div>
+					<h2 class="title">
+						(胡智佳) - hello - 
+					</h2>
+				</div>
+				<div class="adr">
+					<div class="physical">
+						<span class="locality">Jurong West</span>, <span class="region">Singapore</span> 
+					</div>
+					<div class="virtual">
+						<div>Email: <span class="email">z<a href="http://www.google.com/recaptcha/mailhide/d?k=01nbzmtdNJ9561YLJOOr3frA==&amp;c=sY-WOhuBFmAQLzdvSji5zAuaLIi6p-JEnihMouGZxg8=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501nbzmtdNJ9561YLJOOr3frA\75\75\46c\75sY-WOhuBFmAQLzdvSji5zAuaLIi6p-JEnihMouGZxg8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...u</a>@gmail.com</span>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+			<section class="objective-wrapper clearfix">
 				<div class="header">
 					<h2>Objective</h2>
 				</div>
@@ -30,11 +52,10 @@
 				</div>
 				<div class="content">
 					<ol class="vcalender">
-
 						{% for experience in experienceList %}
 						<li class="vevent vcard experience">
-							<h3 class="title">{{ experience.jobTitle }}</h3>
-							<span class="org highlight">{{ experience.company }}</span>
+							<h3 class="title">{{ experience.role }}</h3>
+							<span class="org highlight">{{ experience.organization }}</span>
 							<div>
 								<abbr title="{{ experience.startDate }}">
 									{{ experience.startDate.strftime("%B %Y") }}
@@ -51,7 +72,7 @@
 							<span class="location">{{ experience.location }}</span>
 							<div class="summary">
 								<ul>
-									{% for summary in experience.summaryList %}
+									{% for summary in experience.summary.split('\n') %}
 									<li>{{ summary }}</li>
 									{% endfor %}
 								</ul>
@@ -62,20 +83,102 @@
 					</ol>
 				</div>
 			</section>
-
+			<div class="clear"></div>
 			<section class="skills-wrapper">
+				<div class="header">
+					<h2>Skills</h2>		
+				</div>
+				<div class="content">
+					<ul class="skills">
+						{% for skill in skillsList %}
+							<li class="skill">{{ skill.summary }}</li>
+						{% endfor %}
+					<ul>
+				</div>
 			</section>
-
+			<div class="clear"></div>
 			<section class="projects-wrapper">
-			</section>
+				<div class="header">
+					<h2>Projects</h2>		
+				</div>
+				<div class="content">
+					<ol class="vcalender">
 
+						{% for project in projectList %}
+						<li class="vevent vcard experience">
+							<h3 class="title">{{ project.eventName }}</h3>
+							<div>
+								<abbr title="{{ project.startDate }}">
+									{{ project.startDate.strftime("%B %Y") }}
+								</abbr>
+								 - 
+								<abbr title="{{ project.endDate }}">
+									{% if project.endDate %}
+									{{ project.endDate.strftime("%B %Y") }}
+									{% else %}		
+									Present
+									{% endif %}
+								</abbr>
+							</div>
+							<div class="summary">
+								<ul>
+									{% for summary in project.summary.split('\n') %}
+									<li>{{ summary }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</li>
+						{% endfor %}
+
+					</ol>
+				</div>
+			</section>
+			<div class="clear"></div>
 			<section class="education-wrapper">
-			</section>
+				<div class="header">
+					<h2>Education</h2>		
+				</div>
+				<div class="content">
+					<ol class="vcalender">
 
-			<section class="interests-wrapper">
+						{% for education in educationList %}
+						<li class="vevent vcard education">
+							<h3 class="title">{{ education.eventName }}</h3>
+							<span class="org highlight">{{ education.organization }}</span>
+							<div>
+								<abbr title="{{ education.startDate }}">
+									{{ education.startDate.strftime("%B %Y") }}
+								</abbr>
+								 - 
+								<abbr title="{{ education.endDate }}">
+									{% if education.endDate %}
+									{{ education.endDate.strftime("%B %Y") }}
+									{% else %}		
+									Present
+									{% endif %}
+								</abbr>
+							</div>
+						</li>
+						{% endfor %}
+
+					</ol>
+				</div>
 			</section>
-		</article>
-	</div>
+			<div class="clear"></div>
+			<section class="interests-wrapper">
+				<div class="header">
+					<h2>Interests</h2>		
+				</div>
+				<div class="content">
+					<p>
+						{% for interest in interestList %}
+							{{ interest.summary }}...
+						{% endfor %}
+					<p>
+				</div>
+			</section>
+		</div>
+	</article>
 	<footer></footer>
 </body>
 

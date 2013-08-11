@@ -3,10 +3,14 @@ from google.appengine.ext import db
 
 class ResumeEvent(db.Model):
 	eventType = db.StringProperty(required = True)
-	company = db.StringProperty(required = True)
+	eventName = db.StringProperty(required = True)
+	organization = db.StringProperty(required = True)
 	location = db.StringProperty(default = "Singapore")
-	project = db.StringProperty(required = True)
 	role = db.StringProperty(default = "Programmer")
 	startDate = db.DateProperty(required = True)
 	endDate = db.DateProperty()
-	summary = db.TextProperty(required = True)
+	summary = db.StringProperty(multiline=True)
+
+class ResumeThing(db.Model):
+	thingType = db.StringProperty(required = True)
+	summary = db.StringProperty(required = True)

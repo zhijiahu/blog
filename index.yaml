@@ -14,9 +14,4 @@ indexes:
   properties:
   - name: eventType
   - name: startDate
-
-- kind: ResumeEvent
-  properties:
-  - name: eventType
-  - name: startDate
     direction: desc

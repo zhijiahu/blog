@@ -7,26 +7,48 @@ class ResumeHandler(BaseHandler):
 	def get(self):
 		self.render("resume.html", 
 			objective = ResumeManager().getObjective(),
-			experienceList = ResumeManager().getExperienceList())
+			experienceList = ResumeManager().getEventList("Experience"),
+			skillsList = ResumeManager().getThingList("Skills"),
+			projectList = ResumeManager().getEventList("Projects"),
+			educationList = ResumeManager().getEventList("Education"),
+			interestList = ResumeManager().getThingList("Interests"))
 
 	def post(self):
 		event = ResumeEvent(
 			eventType = "Experience",
-			company = "-",
-			project = "-",
+			eventName = "-",
+			organization = "-",
 			startDate = datetime.date.today(),
-			summary = "-")
+			endDate = datetime.date.today(),
+			summary = "-\n-")
 
 		event.put()
+
+		thing = ResumeThing(
+			thingType = "-",
+			summary = "-")
+		thing.put()
 
 
 class ResumeManager():
 	def getObjective(self):
-		return "Doing something awesome at a global scale"
+		objective = ResumeThing.all().filter("thingType = ", "Objective").get()
 
-	def getExperienceList(self):
-		experienceList = []
+		if objective:
+			return objective.summary
 
-		experienceList = ResumeEvent.all().order("-startDate").filter("eventType = ", "Experience")
+		return "Doing something awesome"
 
-		return experienceList
+	def getEventList(self, eventType):
+		eventList = []
+
+		eventList = ResumeEvent.all().order("-startDate").filter("eventType = ", eventType)
+
+		return eventList
+
+	def getThingList(self, thingType):
+		thingList = []
+
+		thingList = ResumeThing.all().filter("thingType = ", thingType)
+
+		return thingList
