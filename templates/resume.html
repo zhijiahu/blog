@@ -6,7 +6,10 @@
   <title>Hu Zhijia - Résumé</title>
 </head>
 
-<body>
+<!--[if lt IE 7 ]> <body class="ie6 "> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7 "> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8 "> <![endif]-->
+<!--[if !IE]><!--> <body> <!--<![endif]-->
 	<header id="nav-wrapper">
 		<nav id="nav-wrapper-inner">
 			<ul id="options" class="clearfix">
@@ -69,7 +72,9 @@
 									{% endif %}
 								</abbr>
 							</div>
+							{% if experience.location %}
 							<span class="location">{{ experience.location }}</span>
+							{% endif %}
 							<div class="summary">
 								<ul>
 									{% for summary in experience.summary.split('\n') %}
@@ -89,11 +94,11 @@
 					<h2>Skills</h2>		
 				</div>
 				<div class="content">
+					{% for skill in skillsList %}
 					<ul class="skills">
-						{% for skill in skillsList %}
-							<li class="skill">{{ skill.summary }}</li>
-						{% endfor %}
-					<ul>
+						<li>{{ skill.summary }}</li>
+					</ul>
+					{% endfor %}
 				</div>
 			</section>
 			<div class="clear"></div>
@@ -158,6 +163,8 @@
 									{% endif %}
 								</abbr>
 							</div>
+							<div class="summary">
+							</div>
 						</li>
 						{% endfor %}
 
@@ -169,7 +176,7 @@
 				<div class="header">
 					<h2>Interests</h2>		
 				</div>
-				<div class="content">
+				<div class="summary content">
 					<p>
 						{% for interest in interestList %}
 							{{ interest.summary }}...

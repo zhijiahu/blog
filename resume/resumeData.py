@@ -5,7 +5,7 @@ class ResumeEvent(db.Model):
 	eventType = db.StringProperty(required = True)
 	eventName = db.StringProperty(required = True)
 	organization = db.StringProperty(required = True)
-	location = db.StringProperty(default = "Singapore")
+	location = db.StringProperty()
 	role = db.StringProperty(default = "Programmer")
 	startDate = db.DateProperty(required = True)
 	endDate = db.DateProperty()
