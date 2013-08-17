@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from base import BaseHandler
 from resumeData import *
 import datetime
@@ -6,6 +8,8 @@ import logging
 class ResumeHandler(BaseHandler):
 	def get(self):
 		self.render("resume.html", 
+			title = u"Hu Zhijia - Résumé",
+			css = "resume",
 			objective = ResumeManager().getObjective(),
 			experienceList = ResumeManager().getEventList("Experience"),
 			skillsList = ResumeManager().getThingList("Skills"),
