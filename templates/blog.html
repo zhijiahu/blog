@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> HEllo </h1>
+  <form method="post" action="/blog/newpost">
+	<input type="submit" value="New entry">
+  </form>
+  <br>
+  {% for p in posts %}
+    {{ p.render() | safe }}
+    <br><br>
+  {% endfor %}
+
+  <div class="age">
+	queried {{ secs_ago }} seconds ago
+  </div>
 {% endblock %}
