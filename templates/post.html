@@ -10,6 +10,10 @@
   </div>
 
   <div class="post-content">
-    <pre>{{p.content| safe}}</pre>
+    {% if p.lang %}
+    <pre class="brush: {{p.lang}};">{{p.content| safe}}</pre>
+    {% else %}
+     <pre>{{p.content| safe}}</pre>
+    {% endif %}
   </div>
 </div>

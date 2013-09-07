@@ -11,26 +11,49 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        
+        <link rel="stylesheet" href="/stylesheets/normalize.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
 
-        <link rel="stylesheet" href="stylesheets/normalize.css">
-        <link rel="stylesheet" href="stylesheets/main.css">
-        {% if css %}
-            <link rel="stylesheet" href="stylesheets/{{ css }}.css">
-        {% endif %}
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        {% block head %}
+        {% endblock %}
+
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
+        <header id="nav-wrapper"> 
+            <nav id="nav-wrapper-inner">
+                <ul id="options" class="clearfix">
+                    <li id="home">
+                        <a href="/">home</a>
+                    </li>
+                    <li id="linkedin">
+                        <a href="http://www.linkedin.com/pub/zhijia-hu/20/b4b/287" rel="external">Linkedin</a>
+                    </li>
+                    <li id="login">
+                        {% if superman %}
+                        <a class="login-link" href="/logout">logout</a> | <a class="login-link">{{ superman }}</a>
+                        {% else %}
+                        <a class="login-link" href="/login">login</a> | <a class="login-link" href="/signup">sign up</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        {% if blog %}
+        <a href="/blog" class="main-title"> // Codes </a>
+        {% endif %}
         {% block content %}
         {% endblock %}
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

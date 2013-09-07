@@ -14,7 +14,7 @@ class BlogViewByIdHandler(BaseHandler):
 			last_queried, postById = Article.get_post_by_id(int(article_id))
 			posts = [postById]
 			secs_ago = int(time.time() - last_queried)
-			self.render("blog.html", css = "../../stylesheets/blog", posts = posts, secs_ago = secs_ago)
+			self.render("blog.html", blog = True, posts = posts, secs_ago = secs_ago)
 
 	def post(self):
 		self.redirect("/blog/newpost")
@@ -33,7 +33,7 @@ class BlogViewAllHandler(BaseHandler):
 		last_queried, posts = Article.get_all_posts()
 
 		secs_ago = int(time.time() - last_queried)
-		self.render("blog.html", css = "blog", posts = posts, secs_ago = secs_ago)
+		self.render("blog.html", blog = True, posts = posts, secs_ago = secs_ago)
 
 	def post(self):
 		self.redirect("/blog/newpost")
@@ -49,6 +49,7 @@ class Article(db.Model, BaseHandler):
 	subject = db.StringProperty(required = True)
 	content = db.TextProperty(required = True)
 	created = db.DateTimeProperty(auto_now_add = True)
+	lang = db.StringProperty()
 
 	@staticmethod
 	def get_all_posts():
@@ -96,18 +97,34 @@ class BlogFlushHandler(BaseHandler):
 
 class BlogNewHandler(BaseHandler):
 	def get(self):
-		self.render("newpost.html", css = "../../stylesheets/blog")
+		if self.isSuperman():
+			self.render("newpost.html", blog = True)
+		else:
+			self.redirect("/login")
+
+class BlogEditHandler(BaseHandler):
+	def get(self,article_id):
+		last_queried, postById = Article.get_post_by_id(int(article_id))
+	
+		params = dict(	subject = postById.subject,
+						content = postById.content,
+						lang = postById.lang,
+						article_id = article_id,
+						blog = True)
+
+		self.render("newpost.html", **params)
 
 	def post(self):
+		article_id = self.request.get("article_id")
 		subject = self.request.get("subject")
 		content = self.request.get("content")
+		lang = self.request.get("lang")
 
 		params = dict(	subject = subject,
-						content = content)
+						content = content,
+						blog = True)
 
 		haveError = False
-
-		params["css"] = "../../stylesheets/blog"
 
 		# Validation
 		if not subject:
@@ -121,10 +138,19 @@ class BlogNewHandler(BaseHandler):
 		if haveError:
 			self.render("newpost.html", **params)
 		else:
-			newArticle = Article(subject = subject, content = content)
-			newArticle.put()
-			newArticleKey = newArticle.key().id()
-			self.redirect("/blog/" + str(newArticleKey))
+			if article_id:
+				last_queried, postById = Article.get_post_by_id(int(article_id))
+				postById.subject = subject
+				postById.content = content
+				postById.lang = lang
+				postById.put()
+			else:
+				newArticle = Article(subject = subject, content = content, lang = lang)
+				newArticle.put()
+				article_id = newArticle.key().id()
+
+			memcache.flush_all()
+			self.redirect("/blog/" + str(article_id))
 
 
 

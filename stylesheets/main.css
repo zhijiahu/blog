@@ -19,7 +19,7 @@ textarea {
 }
 
 body {
-    font-size: 1em;
+    font-size:62.5%;
     line-height: 1.4;
 }
 
@@ -93,20 +93,91 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#main {
+position:relative;
+width:980px;
+font-size:1.4em;
+margin:30px auto;
+}
 
+#wrapper {
+padding:40px 80px;
+}
 
+#nav-wrapper {
+background-color:#111;
+color:#eee;
+font-size:1.2em;
+min-width:800px;
+width:100%;
+padding:10px 0;
+}
 
+#nav-wrapper #nav-wrapper-inner {
+width:800px;
+margin:0 auto;
+padding:0 80px;
+}
 
+#nav-wrapper #nav-wrapper-inner a {
+background-color:#555;
+color:#fff;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+-o-border-radius:3px;
+border-radius:3px;
+text-shadow:1px 1px 0 #333;
+-webkit-transition:all .4s ease-in;
+-moz-transition:all .4s ease-in;
+-o-transition:all .4s ease-in;
+transition:all .4s ease-in;
+padding:3px 7px;
+}
 
+#nav-wrapper #nav-wrapper-inner a:hover {
+background-color:#444;
+color:#fff;
+}
 
+ul#options {
+list-style:none;
+width:800px;
+margin:0;
+}
 
+ul#options li {
+float:right;
+margin:0 0 0 1em;
+}
 
+ul#options li#linkedin a {
+background-color:#1e90ff;
+}
 
+ul#options li#linkedin a:hover {
+background-color:#4169e1;
+}
 
+.login-area {
+    font-size: 13px;
+    color: gray;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
+.login-link {
+    color: gray;
+    text-decoration: none;
+}
 
+.login-link:visited {
+    color: gray;
+}
 
-
+.login-link:hover {
+    text-decoration: underline;
+}
 
 
 /* ==========================================================================

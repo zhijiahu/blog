@@ -9,7 +9,6 @@ class ResumeHandler(BaseHandler):
 	def get(self):
 		self.render("resume.html", 
 			title = u"Hu Zhijia - Résumé",
-			css = "resume",
 			objective = ResumeManager().getObjective(),
 			experienceList = ResumeManager().getEventList("Experience"),
 			skillsList = ResumeManager().getThingList("Skills"),

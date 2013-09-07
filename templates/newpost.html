@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link type="text/css" rel="stylesheet" href="/stylesheets/blog.css"/>
+{% endblock %}
+
 {% block content %}
-	<form method="post">
+<article id="main">
+    <div id="wrapper">
+	<form method="post" action="/blog/edit">
+		<input type="text" hidden="true" name="article_id" value="{{ article_id }}">
 		<label>
 			<div>Subject</div>
 			<input type="text" name="subject" value="{{ subject }}">
@@ -14,6 +21,25 @@
 			<span class="error">{{ error_content }}</span>
 		</label>
 
+		<br>
+			<select name="lang">
+				<option value="c#">C#</option>
+				<option value="cpp">C++</option>
+				<option value="java">Java</option>
+				<option value="javascript">Javascript</option>
+				<option value="as3">Actionscript</option>
+				<option value="css">CSS</option>
+				<option value="python">Python</option>
+				<option value="perl">Perl</option>
+				<option value="bash">Bash</option>
+				<option value="sql">SQL</option>
+				<option value="text">Plain Text</option>
+			</select> 
+		<br>
+		<br>
+		<br>
 		<input type="submit" value="Post">
 	</form>
+    </div>
+</article>
 {% endblock %}

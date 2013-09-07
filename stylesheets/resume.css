@@ -163,41 +163,6 @@ background-color:#111;
 border-bottom:0;
 }
 
-#nav-wrapper {
-background-color:#111;
-color:#eee;
-font-size:1.2em;
-min-width:800px;
-width:100%;
-padding:10px 0;
-}
-
-#nav-wrapper #nav-wrapper-inner {
-width:800px;
-margin:0 auto;
-padding:0 80px;
-}
-
-#nav-wrapper #nav-wrapper-inner a {
-background-color:#555;
-color:#fff;
--moz-border-radius:3px;
--webkit-border-radius:3px;
--o-border-radius:3px;
-border-radius:3px;
-text-shadow:1px 1px 0 #333;
--webkit-transition:all .4s ease-in;
--moz-transition:all .4s ease-in;
--o-transition:all .4s ease-in;
-transition:all .4s ease-in;
-padding:3px 7px;
-}
-
-#nav-wrapper #nav-wrapper-inner a:hover {
-background-color:#444;
-color:#fff;
-}
-
 .chineseName{
 	font-style:italic;
 	text-align:bottom;
@@ -217,32 +182,6 @@ font-family:Georgia,serif;
 content:"le";
 }
 
-ul#options {
-list-style:none;
-width:800px;
-margin:0;
-}
-
-ul#options li {
-float:right;
-margin:0 0 0 1em;
-}
-
-ul#options li#linkedin a {
-background-color:#1e90ff;
-}
-
-ul#options li#linkedin a:hover {
-background-color:#4169e1;
-}
-
-#main {
-position:relative;
-width:980px;
-font-size:1.4em;
-margin:30px auto;
-}
-
 #main div.summary {
 margin:1em 0 0;
 }
@@ -253,9 +192,6 @@ right:0;
 top:.5em;
 }
 
-#wrapper {
-padding:40px 80px;
-}
 
 #main h3,#main .objective-wrapper div.summary{
 margin:0;
