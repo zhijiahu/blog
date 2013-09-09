@@ -3,7 +3,7 @@ import webapp2
 from base import BaseHandler
 from resume.resume import ResumeHandler
 from blog.blog import *
-from account.account import SignupHandler, LoginHandler, LogoutHandler
+from account.account import *
 
 class MainHandler(BaseHandler):
 	def get(self):
