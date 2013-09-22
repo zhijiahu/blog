@@ -42,20 +42,6 @@ margin:0;
 padding:0;
 }
 
-a img,.noline,a.noline:link,a.noline:visited,a.noline:hover,a.thumb,a.icon,a.img:link,a.img:visited,a.img:hover {
-background:none;
-border-width:0;
-}
-
-a.more-link {
-white-space:nowrap;
-}
-
-a:hover,aside a {
-color:#111;
-background-color:#fff;
-}
-
 abbr[title],dfn[title] {
 border-bottom:1px dotted #000;
 cursor:help;
@@ -114,6 +100,8 @@ font-size:4em;
 line-height:1;
 font-weight:400;
 background-color:#fff;
+border-top: 2px dashed;
+border-bottom: 2px dashed;
 color:#000;
 font-style:italic;
 float:left;
