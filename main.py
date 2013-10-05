@@ -4,6 +4,7 @@ from base import BaseHandler
 from resume.resume import ResumeHandler
 from blog.blog import *
 from account.account import *
+from projects.projects import *
 
 class MainHandler(BaseHandler):
 	def get(self):
@@ -21,6 +22,7 @@ app = webapp2.WSGIApplication([	('/', MainHandler),
 							   	('/blog/edit/([0-9]+)', BlogEditHandler),
 							   	('/blog/edit', BlogEditHandler),
 							   	('/blog/flush', BlogFlushHandler),
-								('/resume', ResumeHandler)],
+								('/resume', ResumeHandler),
+								('/projects', ProjectsHandler)],
 							   debug=True)
 
