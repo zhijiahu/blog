@@ -8,7 +8,7 @@ from projects.projects import *
 
 class MainHandler(BaseHandler):
 	def get(self):
-		self.render("main.html", css = "landing", title = "Hu Zhijia")
+		self.render("main.html", css = "landing", title = "Hu Zhijia", hostname = self.request.host)
 
 app = webapp2.WSGIApplication([	('/', MainHandler),
 								('/signup', SignupHandler),
