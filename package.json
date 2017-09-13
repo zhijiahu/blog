@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "description": "Ranting about code.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zhijiahu/blog.git"
+  },
+  "bugs": "https://github.com/zhijiahu/blog/issues",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "casper": "TryGhost/Casper#2.1.2",
+    "ghost": "1.8.5",
+    "ghost-s3-storage-adapter": "latest",
+    "ncp": "^2.0.0",
+    "pg": "latest"
+  },
+  "engines": {
+    "node": "^4.8.4 || ^6.11.1"
+  },
+  "scripts": {
+    "postinstall": "ncp node_modules/casper content/themes/casper",
+    "start": "node server.js"
+  }
+}

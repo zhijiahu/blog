@@ -1,4 +1,4 @@
-// Ghost Configuration for Heroku
+// Ghost Configuration
 
 var path = require('path'),
     config,
