@@ -1,30 +1,26 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "Ranting about code",
-  "main": "config.js",
-  "scripts": {
-    "preinstall": "npm install",
-    "postinstall": "ncp node_modules/casper content/themes/casper",
-    "start": "node server.js"
-  },
+  "name": "ghost-on-heroku",
+  "description": "Just a blogging platform on Heroku.",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhijiahu/blog.git"
+    "url": "git://github.com/cobyism/ghost-on-heroku.git"
   },
-  "author": "Zhijia",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zhijiahu/blog/issues"
-  },
-  "homepage": "https://github.com/zhijiahu/blog#readme",
+  "bugs": "https://github.com/TryGhost/Ghost/issues",
+  "private": true,
+  "version": "0.11.11",
   "dependencies": {
-    "casper": "TryGhost/Casper#2.1.2",
-    "ghost": "^1.8.6",
+    "casper": "TryGhost/Casper#1.3.7",
+    "ghost": "0.11.11",
+    "ghost-s3-storage-adapter": "3.0.4",
     "ncp": "^2.0.0",
-    "pg": "^7.3.0"
+    "pg": "latest"
   },
   "engines": {
     "node": "^4.8.4 || ^6.11.1"
+  },
+  "scripts": {
+    "postinstall": "ncp node_modules/casper content/themes/casper",
+    "start": "node server.js"
   }
 }
