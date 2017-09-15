@@ -1,23 +1,20 @@
 {
-  "name": "ghost-on-heroku",
-  "description": "Just a blogging platform on Heroku.",
+  "name": "blog-zhijiahu",
+  "description": "Ranting about code.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cobyism/ghost-on-heroku.git"
+    "url": "git://github.com/zhijiahu/blog.git"
   },
   "bugs": "https://github.com/TryGhost/Ghost/issues",
   "private": true,
-  "version": "0.11.11",
+  "version": "1.0.0",
   "dependencies": {
-    "casper": "TryGhost/Casper#2.1.2",
     "ghost": "1.8.6",
+    "casper": "TryGhost/Casper#2.1.2",
     "ghost-s3-storage-adapter": "3.0.4",
     "ncp": "^2.0.0",
     "pg": "latest"
-  },
-  "engines": {
-    "node": "^4.8.4 || ^6.11.1"
   },
   "scripts": {
     "postinstall": "ncp node_modules/casper content/themes/casper",
