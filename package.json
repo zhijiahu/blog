@@ -4,6 +4,7 @@
   "description": "Ranting about code",
   "main": "config.js",
   "scripts": {
+    "preinstall": "npm install",
     "postinstall": "ncp node_modules/casper content/themes/casper",
     "start": "node server.js"
   },
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/zhijiahu/blog#readme",
   "dependencies": {
-    "casper-theme": "^1.3.4",
+    "casper": "TryGhost/Casper#2.1.2",
     "ghost": "^1.8.6",
     "ncp": "^2.0.0",
     "pg": "^7.3.0"
