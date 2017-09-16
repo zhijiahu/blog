@@ -1,23 +1,25 @@
 {
-  "name": "blog-zhijiahu",
-  "description": "Ranting about code.",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/zhijiahu/blog.git"
-  },
-  "bugs": "https://github.com/TryGhost/Ghost/issues",
-  "private": true,
-  "version": "1.0.0",
-  "dependencies": {
-    "ghost": "1.8.6",
-    "casper": "TryGhost/Casper#2.1.2",
-    "ghost-s3-storage-adapter": "3.0.4",
-    "ncp": "^2.0.0",
-    "pg": "latest"
-  },
-  "scripts": {
-    "postinstall": "ncp node_modules/casper content/themes/casper",
-    "start": "node server.js"
-  }
+    "name": "blog-zhijiahu",
+    "description": "Ranting about code.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/zhijiahu/blog.git"
+    },
+    "bugs": "https://github.com/TryGhost/Ghost/issues",
+    "private": true,
+    "version": "1.0.0",
+    "dependencies": {
+        "ghost": "1.8.6",
+        "casper": "TryGhost/Casper#2.1.2",
+        ""
+        "ghost-s3-storage-adapter": "3.0.4",
+        "ncp": "^2.0.0",
+        "pg": "latest"
+    },
+    "scripts": {
+        "postinstall": "ncp node_modules/casper content/themes/casper",
+        "postinstall": "knex-migrator init --mgpath node_modules/ghost"
+        "start": "node server.js"
+    }
 }
