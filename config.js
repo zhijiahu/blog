@@ -52,8 +52,8 @@ config = {
     fileStorage: fileStorage,
     storage: storage,
     database: {
-      client: 'postgres',
-      connection: process.env.DATABASE_URL,
+      client: 'jawsdb',
+      connection: process.env.JAWSDB_URL,
       debug: false
     },
     server: {
